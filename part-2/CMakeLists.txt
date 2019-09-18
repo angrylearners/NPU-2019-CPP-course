@@ -1,4 +1,4 @@
-project(part-1)
+project(part-2)
 
 add_executable(011 011.cc)
 add_executable(012 012.cc)
