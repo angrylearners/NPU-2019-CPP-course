@@ -11,7 +11,7 @@
 using RuleAction=std::tuple<std::function<bool(uint64_t)>, std::function<double(uint64_t)>>;
 #define SIMPLE_RULE(RULE) std::function<bool(uint64_t)>([&](uint64_t val)->bool{return RULE;})
 #define SIMPLE_ACT(EXPR) std::function<double(uint64_t)>([&](uint64_t val)->double{return EXPR;})
-#define MakeRuleAction(rule, expr)      std::make_tuple(SIMPLE_RULE(rule),SIMPLE_ACT(expr))
+#define MakeRuleAction(rule, expr) std::make_tuple(SIMPLE_RULE(rule),SIMPLE_ACT(expr))
 #define CalcExtra(val, base, weight) (double)(val-base)*(double)weight
 
 auto MatchAndApplyRule(uint64_t val, const std::vector<RuleAction> &rules) -> double {
