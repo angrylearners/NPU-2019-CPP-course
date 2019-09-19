@@ -11,11 +11,11 @@ class Date {
 public:
   uint32_t year_{};
   uint8_t month_{}, day_{};
-  const std::array<uint8_t, 12> daysOfMonths_ = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+  const std::array<const uint8_t, 12> daysOfMonths_ = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
   
   friend std::istream &operator>>(std::istream &is, Date &obj) {
-    std::string tmpStr{};
-    auto parser = [&]() {
+    auto parser = [&]() -> unsigned long {
+      std::string tmpStr{};
       char tmpCh{};
       while (true) {
         is >> tmpCh;
@@ -23,15 +23,15 @@ public:
         if (tmpCh == '-')
           break;
       }
+      return std::stoul(tmpStr);
     };
-    parser();
-    obj.year_ = std::stoul(tmpStr);
-    tmpStr.clear();
-    parser();
-    obj.month_ = std::stoul(tmpStr);
-    tmpStr.clear();
+    obj.year_ = parser();
+    obj.month_ = parser();
+  
+    std::string tmpStr{};
     std::cin >> tmpStr;
     obj.day_ = std::stoul(tmpStr);
+  
     return is;
   }
   
