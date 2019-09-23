@@ -1,0 +1,12 @@
+project(part-3)
+
+add_executable(021 021.cc)
+add_executable(022 022.cc)
+add_executable(023 023.cc)
+add_executable(024 024.cc)
+add_executable(025 025.cc)
+add_executable(026 026.cc)
+add_executable(027 027.cc)
+add_executable(028 028.cc)
+add_executable(029 029.cc)
+add_executable(030 030.cc)

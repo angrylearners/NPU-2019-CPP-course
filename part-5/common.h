@@ -10,22 +10,22 @@
 
 template<typename T>
 auto InputArray(std::istream &is) -> std::valarray<T> {
-  size_t nums{};
-  is >> nums;
+  size_t num{};
+  is >> num;
   
-  auto res = std::valarray<T>(nums);
+  auto res = std::valarray<T>(num);
   
-  for (size_t i = 0; i < nums; i++)
+  for (size_t i = 0; i < num; i++)
     is >> res[i];
   
   return res;
 }
 
 template<typename T>
-auto InputArray(std::istream &is, size_t nums) -> std::valarray<T> {
-  auto res = std::valarray<T>(nums);
+auto InputArray(std::istream &is, size_t len) -> std::valarray<T> {
+  auto res = std::valarray<T>(len);
   
-  for (size_t i = 0; i < nums; i++)
+  for (size_t i = 0; i < len; i++)
     is >> res[i];
   
   return res;
@@ -52,6 +52,13 @@ auto InputSquareMatrix(std::istream &is) -> std::valarray<std::valarray<T>> {
   }
   
   return res;
+}
+
+template<typename T>
+auto operator<<(std::ostream &os, const std::valarray<T> &arr) -> std::ostream & {
+  for (size_t i = 0; i < arr.size(); i++)
+    os << arr[i] << " ";
+  return os;
 }
 
 #endif //PART_5_COMMON_H
