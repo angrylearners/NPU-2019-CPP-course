@@ -14,7 +14,7 @@ auto main() -> int {
   std::cin >> grade;
   assert(0 <= grade && grade <= 100);
   
-  char convertedGrade = '\0';
+  char convertedGrade{};
 
 //  switch (grade) {
 //    case 90 ... 100:

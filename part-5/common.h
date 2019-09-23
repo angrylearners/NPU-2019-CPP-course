@@ -7,6 +7,7 @@
 
 #include <ios>
 #include <valarray>
+#include <vector>
 
 template<typename T>
 auto InputArray(std::istream &is) -> std::valarray<T> {
@@ -18,6 +19,15 @@ auto InputArray(std::istream &is) -> std::valarray<T> {
   for (size_t i = 0; i < num; i++)
     is >> res[i];
   
+  return res;
+}
+
+template<typename T>
+auto InputVector(std::istream &is) -> std::vector<T> {
+  auto arr = InputArray<T>(is);
+  std::vector<T> res{};
+  for (size_t i = 0; i < arr.size(); i++)
+    res.push_back(arr[i]);
   return res;
 }
 
@@ -56,6 +66,13 @@ auto InputSquareMatrix(std::istream &is) -> std::valarray<std::valarray<T>> {
 
 template<typename T>
 auto operator<<(std::ostream &os, const std::valarray<T> &arr) -> std::ostream & {
+  for (size_t i = 0; i < arr.size(); i++)
+    os << arr[i] << " ";
+  return os;
+}
+
+template<typename T>
+auto operator<<(std::ostream &os, const std::vector<T> &arr) -> std::ostream & {
   for (size_t i = 0; i < arr.size(); i++)
     os << arr[i] << " ";
   return os;
