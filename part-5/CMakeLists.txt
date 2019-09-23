@@ -1,0 +1,9 @@
+project(part-5)
+
+add_executable(044 044.cc)
+add_executable(045 045.cc)
+add_executable(046 046.cc)
+add_executable(047 047.cc)
+add_executable(048 048.cc)
+add_executable(049 049.cc)
+add_executable(050 050.cc)

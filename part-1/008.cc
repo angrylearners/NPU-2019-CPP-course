@@ -29,7 +29,7 @@ public:
     obj.month_ = parser();
   
     std::string tmpStr{};
-    std::cin >> tmpStr;
+    is >> tmpStr;
     obj.day_ = std::stoul(tmpStr);
   
     return is;

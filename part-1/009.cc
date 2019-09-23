@@ -5,26 +5,42 @@
 #include <iostream>
 #include <cassert>
 
-auto ShowAndExit(char ch) -> void {
-  std::cout << ch << std::endl;
-  exit(EXIT_SUCCESS);
+inline auto InRange(uint32_t val, uint32_t from, uint32_t to) -> bool {
+  return from <= val && val <= to;
 }
 
 auto main() -> int {
   uint16_t grade{};
   std::cin >> grade;
   assert(0 <= grade && grade <= 100);
-  switch (grade) {
-    case 90 ... 100:
-      ShowAndExit('A');
-    case 80 ... 89:
-      ShowAndExit('B');
-    case 70 ... 79:
-      ShowAndExit('C');
-    case 60 ... 69:
-      ShowAndExit('D');
-    default:
-      ShowAndExit('E');
-  }
-  throw std::runtime_error("unreachable code");
+  
+  char convertedGrade = '\0';
+
+//  switch (grade) {
+//    case 90 ... 100:
+//      convertedGrade = 'A';
+//    case 80 ... 89:
+//      convertedGrade = 'B';
+//    case 70 ... 79:
+//      convertedGrade = 'C';
+//    case 60 ... 69:
+//      convertedGrade = 'D';
+//    default:
+//      convertedGrade = 'E';
+//  }
+//
+  
+  if (InRange(grade, 90, 100))
+    convertedGrade = 'A';
+  else if (InRange(grade, 80, 90))
+    convertedGrade = 'B';
+  else if (InRange(grade, 70, 79))
+    convertedGrade = 'C';
+  else if (InRange(grade, 60, 69))
+    convertedGrade = 'D';
+  else
+    convertedGrade = 'E';
+  
+  std::cout << convertedGrade << std::endl;
+  return EXIT_SUCCESS;
 }
