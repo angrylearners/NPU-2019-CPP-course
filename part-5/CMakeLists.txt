@@ -1,5 +1,8 @@
 project(part-5)
 
+add_executable(041 041.cc)
+add_executable(042 042.cc)
+add_executable(043 043.cc)
 add_executable(044 044.cc)
 add_executable(045 045.cc)
 add_executable(046 046.cc)
