@@ -38,7 +38,7 @@ auto Find(std::valarray<Data> arr, int32_t target) -> Result {
 }
 
 auto main() -> int {
-  auto arr = ProcessOriginalArray(InputArray<int32_t>(std::cin));
+  auto arr = ProcessOriginalArray(InputValarray<int32_t>(std::cin));
   auto target = Input<int32_t>(std::cin);
   
   auto res = Find(arr, target);

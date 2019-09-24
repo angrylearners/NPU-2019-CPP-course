@@ -6,7 +6,7 @@
 #include "common.h"
 
 auto main() -> int {
-  auto arrA = InputArray<int32_t>(std::cin);
+  auto arrA = InputValarray<int32_t>(std::cin);
   auto arrB = std::valarray<int32_t>(arrA.size());
   
   std::copy(std::begin(arrA), std::end(arrA), std::begin(arrB));

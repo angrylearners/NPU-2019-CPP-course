@@ -12,7 +12,7 @@ auto Avg(const std::valarray<int32_t> &a, const size_t s, const size_t e) -> dou
 }
 
 auto main() -> int {
-  auto arr = InputArray<int32_t>(std::cin);
+  auto arr = InputValarray<int32_t>(std::cin);
   
   auto s = Input<size_t>(std::cin), e = Input<size_t>(std::cin);
   

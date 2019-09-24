@@ -8,9 +8,21 @@
 #include <ios>
 #include <valarray>
 #include <vector>
+#include <array>
+
+template<typename T, size_t l>
+auto InputArray(std::istream &is) -> std::array<T, l> {
+  auto res = std::array<T, l>();
+  for (size_t i = 0; i < l; i++) {
+    T tmp{};
+    is >> tmp;
+    res[i] = tmp;
+  }
+  return res;
+}
 
 template<typename T>
-auto InputArray(std::istream &is) -> std::valarray<T> {
+auto InputValarray(std::istream &is) -> std::valarray<T> {
   size_t num{};
   is >> num;
   
@@ -24,7 +36,7 @@ auto InputArray(std::istream &is) -> std::valarray<T> {
 
 template<typename T>
 auto InputVector(std::istream &is) -> std::vector<T> {
-  auto arr = InputArray<T>(is);
+  auto arr = InputValarray<T>(is);
   std::vector<T> res{};
   for (size_t i = 0; i < arr.size(); i++)
     res.push_back(arr[i]);
