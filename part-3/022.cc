@@ -28,7 +28,7 @@ auto main() -> int {
   auto n = Input<uint32_t>(std::cin);
   std::vector<uint32_t> res{};
   for (uint32_t i = 0; i <= n; i++) {
-    if (std::to_string(i).find('7' + '0') != std::string::npos || i % 7 == 0)
+    if (std::to_string(i).find(7 + '0') != std::string::npos || i % 7 == 0)
       res.push_back(i);
   }
   std::cout << res << std::endl;
